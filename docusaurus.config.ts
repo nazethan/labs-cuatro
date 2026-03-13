@@ -9,11 +9,6 @@ const config: Config = {
   tagline: 'Welcome to the Labs!',
   favicon: 'img/favicon.ico',
 
-  // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
-  future: {
-    v4: true, // Improve compatibility with the upcoming Docusaurus v4
-  },
-
   url: 'https://ethanlabs.netlify.app/', // Your website URL
   baseUrl: '/',
 
