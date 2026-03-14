@@ -1,6 +1,6 @@
 ---
 title: Project Report
-sidebar_label: Report as Logbook
+sidebar_label: Report
 
 sidebar_position: 2
 pagination_prev: null
