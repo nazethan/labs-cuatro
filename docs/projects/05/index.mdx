@@ -1,0 +1,31 @@
+---
+title: Intro
+sidebar_position: 1
+---
+
+# ETHER
+
+<div align="center">
+```
+
+Energy-Tracking & Harmonic Emotive Reporter
+
+```
+
+E.T.H.E.R. is a dual-node, air-gapped IoT system designed for real-time power safety and emotive AI energy analysis. It bridges the gap between industrial safety hardware and consumer-friendly, gamified interfaces.
+</div>
+
+## The Core Philosophy
+> Traditional smart home energy monitors connect high-voltage switching hardware directly to internet-facing routers, creating security vulnerabilities and latency in emergency cutoffs. E.T.H.E.R. solves this by physically separating the high-voltage reading environment from the internet-connected environment.
+
+## Key Features
+- **Air-Gapped Security:** High-voltage telemetry is sent via 2.4GHz ESP-NOW to an isolated desk node.
+- **Zero-Latency Cutoff:** Hardware-level power shutoff for loads exceeding 2500W.
+- **Emotive UI:** Raw power data is translated into physical hardware expressions and Google Gemini AI insights.
+- **Serverless Edge Data:** Lightning-fast data polling using Astro, Netlify Edge Functions, and TursoDB.
+
+## High-Level Architecture
+The system consists of three main layers:
+1. **The Sentry (Wall Node):** High-voltage edge computing.
+2. **The Avatar (Desk Node):** Low-voltage visual interface and Wi-Fi bridge.
+3. **The Cloud HUD:** Serverless database and Heads-Up Dashboard.
