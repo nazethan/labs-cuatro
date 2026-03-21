@@ -75,25 +75,29 @@ const config: Config = {
           sidebarId: 'projects_sidebar',
         },
         {
+          type: 'search',
+          position: 'right',
+        },
+        {
           href: 'https://drive.google.com/file/d/1N8lwq9JIaMC_iSP21mvaiiPVT7zRvNDd/view?usp=drive_link',
           position: 'right',
-          label: 'Syllabus',
+          label: 'Syll',
         },
         {
           href: 'https://github.com/nazethan/labs',
           position: 'right',
-          label: 'GitHub',
+          label: 'GH',
         },
         {
           href: 'https://discord.gg/FHBc4NeGT5',
           position: 'right',
-          label: 'Join Discord',
-        }
+          label: 'DC',
+        },
       ],
     },
     footer: {
       style: 'dark',
-      copyright: `&copy; ${new Date().getFullYear()} All Rights Reserved &bull; Developed by <a href="https://github.com/dorukaysor">Doruk Aysor</a>`,
+      copyright: `<b>&copy; ${new Date().getFullYear()} &bull; <a href="https://github.com/dorukaysor"><i>Meet the dev</i></a> &bull; Last Updated: ${new Date().toLocaleDateString()}</b>`,
     },
     prism: {
       theme: prismThemes.github,
