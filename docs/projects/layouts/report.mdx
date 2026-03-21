@@ -3,69 +3,81 @@ title: Project Report
 sidebar_label: Report
 
 sidebar_position: 2
-pagination_prev: null
+pagination_next: null
 ---
 
-### 📘 CHAPTER 1: INTRODUCTION
+<details>
+  <summary><b>Front Matter (The Preliminaries)</b></summary>
 
-- **1.1 Overview**
-- **1.2 Problem Statement**
-- **1.3 Objectives**
-- **1.4 Scope of the Project**
+- **Title Page:** Project Name, names of team members, Roll Numbers, Guide’s name, and College Logo.
+- **Certificate:** A formal page signed by your Project Guide, Head of Department (HOD), and Principal.
+- **Declaration:** A statement by the team that the work is original.
+- **Acknowledgement:** Thanking your guide, lab assistants, and the college.
+- **Abstract:** A one-page summary of the technical problem, the IoT solution, and the final results.
+- **Table of Contents:** Detailed list of chapters and sub-sections with page numbers.
+- **List of Figures & Tables:** Essential for IoT projects involving many circuit diagrams and data sheets.
 
-### 📘 CHAPTER 2: LITERATURE REVIEW
-
-- **2.1 Existing Systems**
-- **2.2 Research Gaps**
-- **2.3 Proposed Solution**
-
-### 📘 CHAPTER 3: HARDWARE ARCHITECTURE
-
-:::note
-Explain full hardware architecture including the work flows
-:::
-
-### 📘 CHAPTER 4: SOFTWARE & CLOUD INFRASTRUCTURE
-
-:::info
-Include  Software & Cloud infrastructure details, only if your project has cloud integrations!
-:::
-
-- **4.1 The Serverless Stack**
-- **4.2 Edge Database Management**
-- **4.3 AI Integration (If Any)**
-
-### 📘 CHAPTER 5: USER INTERFACE
-
-:::info
-Include this section, only if your project has an user interface!
-:::
-
-- **5.1 Design Philosophy**
-- **5.2 Dashboard Views**
-
-### 📘 CHAPTER 6: IMPLEMENTATION & TESTING
-
-- **6.1 Hardware Assembly**
-- **6.2 System Calibration**
-- **6.3 Safety Testing**
-- **6.4 Network Testing**
-
-### 📘 CHAPTER 7: CONCLUSION & FUTURE SCOPE
-
-- **7.1 Conclusion** Summary of the successful build and goals achieved.
-- **7.2 Future Enhancements** Ideas for next versions.
-
-### 📄 REFERENCES
-
-- **References / Bibliography**
+</details>
 
 ---
 
-:::note
+## Chapter 1: Introduction
+- **Project Overview:** General introduction to the domain.
+- **Motivation:** Why is this project relevant now?
+- **Problem Statement:** The specific issue you are solving.
+- **Objectives:** Bullets of what the system will achieve.
 
-All the sub-sections are optional and should be included only if they are relevant to your project.  
 
-The main focus should be on the hardware architecture, software/cloud infrastructure, and user interface (if applicable). Make sure to provide detailed explanations and diagrams where necessary to clearly convey your design and implementation process.
+## Chapter 2: Literature Survey
+- Analysis of existing IoT systems.
+- Comparison of communication protocols.
+- Review of hardware components.
 
+
+## Chapter 3: System Design & Architecture
+- **Block Diagram:** Showing the flow from Sensors -> Microcontroller -> Gateway -> Cloud -> User Interface.
+- **Circuit Diagram:** Detailed wiring of sensors, actuators, and power modules.
+- **Data Flow Diagram (DFD):** How data moves through the software backend.
+- **Component Description:** Technical specs of the sensors used.
+
+
+## Chapter 4: Implementation
+- **Algorithm/Flowchart:** Logic of the firmware code.
+- **Software Stack:** Mentioning tools like Arduino IDE, Firebase/AWS, and the frontend framework.
+- **Connectivity:** Details on Wi-Fi/LoRa integration and API endpoints.
+
+
+## Chapter 5: Results and Discussion
+- **Snapshots:** Photos of the hardware prototype and screenshots of the Blynk/Web/App dashboard.
+- **Data Analysis:** ...
+- **Testing Table:** A log of test cases (e.g., "Sensor Accuracy Test," "Latency Test").
+
+---
+
+## The Logbook Section (Weekly Progress)
+:::info Example Logbook Entry
+### **Project Work Log**
+| Week No. | Date | Activity Performed | Status | Guide Remarks/Sign |
+| :--- | :--- | :--- | :--- | :--- |
+| **Week 1** | 02/02 | Literature survey and component finalization. | Completed | |
+| **Week 2** | 09/02 | Circuit simulation and basic PCB layout design. | In Progress | |
+| **Week 3** | 16/02 | Interfacing sensors with ESP32 and testing MQTT. | Completed | |
+| **Week 4** | 23/02 | Developing the UI for the energy tracking dashboard. | Completed | |
+:::
+
+---
+
+## Conclusion & Future Scope
+- **Conclusion:** Final thoughts on how the prototype performed.
+- **Future Scope:** Potential for AI integration, edge computing, or industrial scaling.
+
+## References & Appendices
+- **References:** Follow APA or IEEE format for citations.
+- **Appendix A:** Key code snippets (do not print the entire code, just main loops).
+- **Appendix B:** Datasheets for specialized IoT modules.
+
+---
+
+:::tip
+  Ensure the left margin is at least **1.25** to **1.5 inches**
 :::
