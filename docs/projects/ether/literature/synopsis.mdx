@@ -1,0 +1,88 @@
+---
+title: Synopsis
+description: A comprehensive overview of the E.T.H.E.R. project, including its objectives, architecture, and future scope.
+
+hide_title: true
+sidebar_label: Synopsis
+sidebar_position: 1
+---
+
+## Introduction
+> **E.T.H.E.R.** is a next-generation, dual-node IoT energy monitoring system designed to bridge the gap between industrial power safety and consumer-friendly interfaces. The system utilizes a physical air-gap via ESP-NOW communication between a high-voltage wall unit (The Sentry) and a low-voltage desk interface (The Avatar). This architecture ensures maximum network security while delivering instantaneous hardware safety cutoffs. The edge computing layer securely transmits telemetry via Netlify Edge Functions to a serverless TursoDB (libSQL) database. Finally, the integration of the Gemini API translates raw power metrics into actionable, emotive insights displayed on a high-performance, dark-mode Heads-Up Dashboard (HUD) built with Astro and React. The primary vision is to transform sterile energy logging into an engaging, gamified, and ultra-secure daily habit.
+
+## Problem Statement
+Current smart home energy monitors suffer from three major flaws:
+- **Security Vulnerabilities:** They connect high-voltage switching hardware directly to local Wi-Fi routers, creating a severe entry point for network attacks.
+- **Latency in Safety:** They often rely on cloud-based round-trips to trigger safety cutoffs, which is dangerously slow during a critical 220V power surge.
+- **Poor User Engagement:** They present data in sterile, complex spreadsheets or uninspired dashboards that everyday users ignore, leading to poor energy management habits.
+
+## Literature Review
+> - **Standard Consumer Smart Plugs (e.g., TP-Link Kasa):** These devices achieve remote switching and basic power logging via smartphone apps  
+> > **The Gap**
+They lack air-gapped security by connecting directly to the main router and rely heavily on cloud latency for heavy-load automated cutoffs
+
+> - **Industrial Energy Meters (e.g., DIN rail PZEM systems):** These systems achieve highly accurate, localized AC monitoring for heavy machinery  
+> > **The Gap:** They completely lack intuitive user interfaces, missing the "emotive" or gamified aspect necessary to encourage non-technical users to actively save energy
+
+## Objectives
+-	To engineer a physically air-gapped high-voltage edge node (The Sentry) capable of reading 220V AC mains and executing a localized, sub-second relay cutoff for loads exceeding 2500W.
+-	To establish a router-less, 2.4GHz wireless communication bridge using the ESP-NOW protocol to securely transmit data to a low-voltage desk interface (The Avatar).
+-	To develop a zero-scroll, Heads-Up Dashboard (HUD) using a modern serverless stack (Astro, React, TursoDB) for zero-latency data visualization.
+-	To integrate a Large Language Model (Gemini 1.5 Pro) to analyze raw power telemetry and generate natural, emotive feedback.
+
+## System Architecture & Methodology
+-	**Data Acquisition:** A PZEM-004T v3.0 AC Power Sensor continually reads voltage, current, and wattage directly from the 220V mains.
+- **Processing:** The Sentry node (ESP32) acts as the edge safety controller, instantly triggering a 5V relay if power exceeds the threshold. The Avatar node (ESP32) acts as the visual processing edge, updating its OLED and NeoPixel ring to reflect the system's "Emotive State" (Idle, Happy, Dizzy, Frustrated, Angry).
+- **Communication:** The Sentry and Avatar communicate locally via ESP-NOW (2.4GHz radio). The Avatar then forwards the JSON payload via HTTP POST over local Wi-Fi to the Netlify serverless backend.
+- **Action/Control:** The system features a hard hardware relay cutoff for critical safety, alongside visual actuation via addressable LEDs and screen expressions based on the live current load.
+
+## Requirements Specification
+### Hardware Requirements
+-	**Microcontroller:** ESP32 DevKit v1 — *Central edge processing, ESP-NOW, & Wi-Fi transmission*
+-	**Power Sensor:** PZEM-004T v3.0 — *220V AC voltage, current, & wattage data collection*
+-	**Actuator/Safety:** 5V Relay Module — *Instantaneous hardware cutoff for overloaded circuits*
+-	**Emotive UI:** 1.3” OLED & WS2812B — *Visual state indication by the Avatar Node*
+-	**Power Supply:** Hi-Link HLK-PM01 — *Stepping down 220V AC to 5V DC for the Sentry node*
+
+### Software Requirements
+-	**IDE & Firmware:** VS Code(PlatformIO) / C++ (Arduino Framework)
+-	**Cloud:** Netlify (Edge Functions & Hosting)
+-	**Database:** TursoDB (Serverless libSQL)
+-	**AI Integration:** Google Gemini API
+-	**Dashboard UI:** React, Vite, Tailwind, Typescript & Astro
+
+## Expected Outcomes
+-	The system will successfully isolate the high-voltage reading environment from the internet-connected environment, proving the viability of air-gapped IoT safety.
+-	The Sentry unit will automatically cut power in milliseconds if the load exceeds the hardcoded 2500W threshold.
+-	The web dashboard will display live telemetry and AI-generated insights in a sleek, zero-scroll HUD layout, successfully polling the database without requiring full page reloads.
+
+## Future Scope
+### I. 📡 Hardware & Networking Scaling
+  -	**Multi-Node Mesh Networking (ESP-MESH):** Expanding the system from a single "Sentry-to-Avatar" pair into a full house network. Multiple Sentry nodes (monitoring different appliances) could use ESP-MESH to route data back to a single central Avatar node without needing a central Wi-Fi router.
+  -	**Renewable Energy Integration:** Adding bi-directional current monitoring to track not just power consumed from the grid, but also power generated if the user plugs in a small solar inverter setup.
+
+### II. 🧠 Advanced AI & Software Features
+  -	**Voice-Activated Emotive Interaction:** Upgrading the Avatar node with an I2S microphone and speaker to allow two-way voice communication, letting users literally ask the Gemini AI, "How is my power usage today?" and getting a spoken, emotive response.
+  -	**Automated Time-of-Use (TOU) Optimization:** Integrating local grid API data so the system can automatically suggest (or automatically cut) power to heavy appliances like water heaters during peak electricity rate hours to save money.
+
+### III. 📱 Ecosystem & Accessibility
+  -	**Cross-Platform Mobile Application:** Migrating the web-based HUD into a native mobile app (using React Native or Flutter) to enable critical push notifications. This ensures the user instantly gets an alert on their phone if the Sentry executes an emergency 2500W cutoff.
+  -	**Carbon Footprint Gamification:** Adding a software layer that calculates the exact CO2 emissions based on the power drawn and local grid fuel sources, giving users daily "Sustainability Scores" to gamify energy reduction.
+
+---
+
+## Prepared By
+> #### **Saumit Swain *// Core Designer***
+> > Designing the physical enclosures for the hardware, mapping out the UI/UX wireframes, and wrapping up the project's overall presentation and impact
+
+> #### **Sourav Kumar Roy *// Quality Assurance***
+> > Rigorously testing the system—specifically timing the 2500W relay cutoff latency, calibrating the AC sensor, and stress-testing the database connection
+  
+> #### **Satyajit PaltaSingh *// Hardware***  
+> > Managing the physical circuitry, wiring the 220V Sentry and 5V Avatar nodes, and ensuring strict electrical safety protocols are met
+
+> #### **Subham Pasayat *// Operations***  
+> > Handling component sourcing, managing the project budget, and conducting market research on existing smart home vulnerabilities to strengthen the problem statement
+
+> #### **Piyush Parida *// Core Architect***  
+> > Driving the core system architecture, writing the firmware for the ESP32s, and building the serverless dashboard & integrating the database
