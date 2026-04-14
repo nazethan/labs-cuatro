@@ -51,3 +51,16 @@
 .hidden {
   display: none !important;
 }
+
+/* New badge */
+theme-doc-sidebar-item-category.has-badge-new > .menu__list-item-collapsible > .menu__link::after {
+content: 'NEW';
+margin-left: 8px;
+padding: 2px 6px;
+border-radius: 999px;
+font-size: 10px;
+font-weight: 700;
+letter-spacing: 0.04em;
+color: #0f172a;
+background: #facc15;
+}
