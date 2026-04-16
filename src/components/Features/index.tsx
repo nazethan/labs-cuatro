@@ -26,7 +26,7 @@ const FeatureList: FeatureItem[] = [
     button: (
       <Link
         className="button button--secondary button--lg"
-        to="/docs/projects/">
+        to="/docs/category/layouts">
         Projects
       </Link>
     ),
